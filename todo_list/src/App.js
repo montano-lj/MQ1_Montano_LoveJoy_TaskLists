@@ -1,6 +1,13 @@
 import Todo from "./components/Todo";
 
+
 function App(props) {
+
+  
+  const taskList = props.tasks.map(task => (
+    <Todo id={task.id} name={task.name} completed={task.completed} />
+  ));
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
@@ -47,9 +54,9 @@ function App(props) {
         aria-labelledby="list-heading"
       >
 
-        <Todo name="Eat" completed={true} id="todo-0"/>
-        <Todo name="Sleep" completed={false} id="todo-0"/>
-        <Todo name="Code" completed={false} id="todo-0"/>
+      {taskList}
+
+      
       </ul>
     </div>
   );
